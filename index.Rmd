@@ -8,12 +8,18 @@ output:
 ---
 
 # This is Mary's totally and completly awesome website
-# Resources
+## Resources
 
-These are links to other sites about Mary. 
-
-* [LinkedIn](https://www.linkedin.com/in/mary-williams106/)
-
-# Page about Mary
+## Page about Mary
 
 [About Me](about.html)
+
+## These are links to other sites about Mary. 
+
+* [Github](https://github.com/mnw2132)
+* [LinkedIn](https://www.linkedin.com/in/mary-williams106/)
+
+## Contact
+- Email: mnw2132@cumc.columbia.edu
+- Location: New York, NY
+

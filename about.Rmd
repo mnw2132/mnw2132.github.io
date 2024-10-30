@@ -8,9 +8,6 @@ output:
 ---
 
 # About Mary Williams
-## Contact
-
-New York, NY | 831.588.2362 | mnw2132@cumc.columbia.edu|
 
 ## Education
 
