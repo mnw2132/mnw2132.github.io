@@ -31,8 +31,7 @@ instacart_df =
 unique(instacart_df$department)
 ```
 
-# Plotly plots
-## Scatterplot
+# Scatterplot
 ```{r}
 #Set up data for scatterplot
 produce_1to5 <- instacart_df %>% 
