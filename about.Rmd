@@ -1,13 +1,11 @@
 ---
-title: "Mary's awesome website"
+title: "About Mary"
 output: 
   html_document:
     toc: true
     toc_float: true
-    theme: cerulean
+    theme: journal
 ---
-
-# About Mary Williams
 
 ## Education
 
