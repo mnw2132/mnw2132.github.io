@@ -1,5 +1,5 @@
 ---
-title: "About Mary"
+title: "Mary's Website"
 output: 
   html_document:
     toc: true
@@ -7,16 +7,14 @@ output:
     theme: cerulean
 ---
 
-# This is Mary's totally and completly awesome website
-## Resources
-
 ## Page about Mary
 
-[About Me](about.html)
+- [About Mary](about.html)
 
-## These are links to other sites about Mary. 
+## Links to other relevent sites: 
 
 * [Github](https://github.com/mnw2132)
+  - [Current Homework 4 Assignment](https://github.com/mnw2132/mnw2132.github.io)
 * [LinkedIn](https://www.linkedin.com/in/mary-williams106/)
 
 ## Contact
