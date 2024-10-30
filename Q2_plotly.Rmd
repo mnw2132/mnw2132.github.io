@@ -10,16 +10,51 @@ Looking at Instacart data.
 library(tidyverse)
 library(p8105.datasets)
 library(plotly)
+library(stringr)
 ```
 
+To stratify the large data set, we will only be looking at data about Organic produce that was bought on Sunday(1), and was a first time order. 
 ```{r}
 data("instacart")
 
 instacart_df = 
   instacart %>%
   na.omit(instacart) %>% #omitting any NA
-  select(order_id, add_to_cart_order, reordered, user_id, order_dow, order_hour_of_day, product_name) %>% #Selecting variables
-filter(reordered == "0") #Only 1st time orders, not re-orders will be shown
+  select(order_id, add_to_cart_order, reordered, user_id, order_dow, order_hour_of_day, product_name, department) %>% #Selecting variables
+  filter(str_detect(product_name, "Organic"), reordered == "0", department %in% c("produce"), order_dow == "1") #Only 1st time orders, not re-orders will be shown. Remove any orders in departments that do not include edible items
 
-unique(instacart_df$order_dow)
+unique(instacart_df$department)
 ```
+
+# Plotly plots
+## Scatterplot
+```{r}
+#Set up data for scatterplot
+produce_1to5 <- instacart_df %>% 
+  group_by(product_name) %>%   # Group by product name
+  summarize(
+    total_count = n(),    # Count total purchases of each product
+    order_count = sum(add_to_cart_order %in% 1:5) # % where that was one of the 1st five products they put in their cart
+  ) %>%
+    filter(total_count > 1) %>% #Removed foods where there was only 0 or 1 bought because it was messing with the graph
+  mutate(order_percent = (order_count / total_count) * 100) # Calculate percentage for the amount of orders
+
+
+produce_1to5 %>%
+  mutate(text_label = str_c("Product Name:", product_name)) %>%
+  plot_ly(x = ~total_count, y = ~order_percent, color = ~product_name, type = "scatter", mode = "markers", colors = "viridis") #when the legend is on there, it only shows the legend in website, not the graph itself
+```
+This scatterplot shows the percentage of each Organic produce item that was one of the first five items to be put in the user's cart on a Sunday, not including any reorders. 
+*Double press on item in the legend to isolate it. *
+
+# Barplot
+```{r}
+instacart_df %>%
+  count(product_name) %>%
+  mutate(product_name = fct_reorder(product_name, n)) %>%
+  plot_ly( 
+    x = ~product_name, y = ~n, 
+    color = ~product_name, type = "bar", colors = "viridis")
+```
+The barplot shows the number of each Organic produce item that was bo on a Sunday, not including any reorders. 
+*Double press on item in the legend to isolate it. *
