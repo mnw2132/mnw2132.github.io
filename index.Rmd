@@ -1,5 +1,5 @@
 ---
-title: "Mary's awesome website"
+title: "About Mary"
 output: 
   html_document:
     toc: true
@@ -10,5 +10,10 @@ output:
 # This is Mary's totally and completly awesome website
 # Resources
 
-These are resources that give more information about Mary. 
+These are links to other sites about Mary. 
+
 * [LinkedIn](https://www.linkedin.com/in/mary-williams106/)
+
+# Page about Mary
+
+[About Me](about.html)
