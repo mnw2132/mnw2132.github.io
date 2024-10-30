@@ -5,6 +5,7 @@ output:
     orientation: columns
     vertical_layout: fill
     source: embed
+        theme: journal
 ---
 
 ```{r setup, include=FALSE}
@@ -16,11 +17,12 @@ library(stringr)
 library(flexdashboard)
 ```
 
-Column {data-width=350}
+Column {data-width=550}
 -----------------------------------------------------------------------
 
-### Chart A
-
+# Dashboard of plots about produce and berry items
+## Dashboard
+### Scatterplot: N of orders vs % that were one of 1st five in cart for produce
 ```{r}
 data("instacart")
 
@@ -28,13 +30,14 @@ instacart_df =
   instacart %>%
   na.omit(instacart) %>% #omitting any NA
   select(order_id, add_to_cart_order, reordered, user_id, order_dow, order_hour_of_day, product_name, department) %>% #Selecting variables
-  filter(str_detect(product_name, "Organic"), reordered == "0", department %in% c("produce"), order_dow == "1") #Only 1st time orders, not re-orders will be shown. Remove any orders in departments that do not include edible items
-
-unique(instacart_df$department)
+  filter(str_detect(product_name, "Organic"), # Only organic items are shown
+         reordered == "0", order_dow == "1", #Only 1st time orders that were ordered on Sunday(1) are shown. 
+         department %in% c("produce")) %>% # Only include produce 
+  mutate(product_name = str_replace_all(product_name, 
+                                        c("Organic Bluberries" = "Organic Blueberries", 
+                                          "Organic Blueberry" = "Organic Blueberries"))) #There were multiple names for blueberries
 ```
 
-# Plotly plots
-## Scatterplot
 ```{r}
 #Set up data for scatterplot
 produce_1to5 <- instacart_df %>% 
@@ -52,23 +55,28 @@ produce_1to5 %>%
   plot_ly(x = ~total_count, y = ~order_percent, color = ~product_name, type = "scatter", mode = "markers", colors = "viridis") #when the legend is on there, it only shows the legend in website, not the graph itself
 ```
 
-Column {data-width=650}
+Column {data-width=450}
 -----------------------------------------------------------------------
 
-### Chart B
+### Barplot: Number of berry products sold
 
 ```{r}
 instacart_df %>%
   count(product_name) %>%
+  filter(str_detect(product_name, "berries|berry|Berries|Berry")) %>%
   mutate(product_name = fct_reorder(product_name, n)) %>%
   plot_ly( 
     x = ~product_name, y = ~n, 
     color = ~product_name, type = "bar", colors = "viridis")
 ```
 
-### Chart C
+### Boxplot: Time of day when berries were sold
 
 ```{r}
-
+instacart_df %>%
+    filter(str_detect(product_name, "berries|berry|Berries|Berry")) %>%
+  plot_ly( 
+    x = ~product_name, y = ~order_hour_of_day, 
+    color = ~product_name, type = "box", colors = "viridis")
 ```
 

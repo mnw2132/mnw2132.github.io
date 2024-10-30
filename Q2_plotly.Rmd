@@ -1,5 +1,5 @@
 ---
-title: "Question 2- Plotly"
+title: "Question 2- Plotly set up"
 output: 
   html_document:
     toc: true
@@ -21,7 +21,12 @@ instacart_df =
   instacart %>%
   na.omit(instacart) %>% #omitting any NA
   select(order_id, add_to_cart_order, reordered, user_id, order_dow, order_hour_of_day, product_name, department) %>% #Selecting variables
-  filter(str_detect(product_name, "Organic"), reordered == "0", department %in% c("produce"), order_dow == "1") #Only 1st time orders, not re-orders will be shown. Remove any orders in departments that do not include edible items
+  filter(str_detect(product_name, "Organic"), # Only organic items are shown
+         reordered == "0", order_dow == "1", #Only 1st time orders that were ordered on Sunday(1) are shown. 
+         department %in% c("produce")) %>% # Remove any orders in departments that do not include edible items
+  mutate(product_name = str_replace_all(product_name, 
+                                        c("Organic Bluberries" = "Organic Blueberries", 
+                                          "Organic Blueberry" = "Organic Blueberries"))) #There were multiple names for blueberries
 
 unique(instacart_df$department)
 ```
@@ -51,10 +56,22 @@ This scatterplot shows the percentage of each Organic produce item that was one 
 ```{r}
 instacart_df %>%
   count(product_name) %>%
+  filter(str_detect(product_name, "berries|berry|Berries|Berry")) %>%
   mutate(product_name = fct_reorder(product_name, n)) %>%
   plot_ly( 
     x = ~product_name, y = ~n, 
     color = ~product_name, type = "bar", colors = "viridis")
 ```
-The barplot shows the number of each Organic produce item that was bo on a Sunday, not including any reorders. 
+The barplot shows the number of each Organic berry items that was bought on a Sunday, not including any reorders. 
+*Double press on item in the legend to isolate it. *
+
+# Boxplot
+```{r}
+instacart_df %>%
+    filter(str_detect(product_name, "berries|berry|Berries|Berry")) %>%
+  plot_ly( 
+    x = ~product_name, y = ~order_hour_of_day, 
+    color = ~product_name, type = "box", colors = "viridis")
+```
+The boxplot shows the time of day that the Organic berry items were bought on a Sunday, not including any reorders. 
 *Double press on item in the legend to isolate it. *
