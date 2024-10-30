@@ -1,0 +1,10 @@
+---
+title: "Mary's awesome website"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+# This is Mary's totally and completly awesome website
