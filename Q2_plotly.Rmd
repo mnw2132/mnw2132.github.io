@@ -1,0 +1,25 @@
+---
+title: "Question 2- Plotly"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+Looking at Instacart data. 
+```{r}
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+```
+
+```{r}
+data("instacart")
+
+instacart_df = 
+  instacart %>%
+  na.omit(instacart) %>% #omitting any NA
+  select(order_id, add_to_cart_order, reordered, user_id, order_dow, order_hour_of_day, product_name) %>% #Selecting variables
+filter(reordered == "0") #Only 1st time orders, not re-orders will be shown
+
+unique(instacart_df$order_dow)
+```
