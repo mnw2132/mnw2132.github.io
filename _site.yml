@@ -11,6 +11,8 @@ navbar:
       href: http://github.com/mnw2132/
     - text: "Plotly"
       href: Q2_plotly.html
+    - text: "Dashboard"
+      href: Dashboard.html
 output:
   html_document:
     theme: journal
