@@ -1,0 +1,63 @@
+---
+title: "Mary's awesome website"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+# About Mary Williams
+## Contact
+
+New York, NY | 831.588.2362 | mnw2132@cumc.columbia.edu|
+
+## Education
+
+**Columbia University Mailman School of Public Health** | New York, NY 	August 2023-May 2025
+*Masters in Public Health, Epidemiology, Certificate in Infectious Disease Epidemiology *
+Coursework: Applications of Epidemiologic Research Methods (Spring 2024), Emerging Infectious Diseases (Fall 2024)
+
+**Binghamton University** | Binghamton, NY 	August 2018-May 2022
+*Bachelor of Science, Biology with a focus in pre-med and microbiology*
+Academic Scholarship Recipient, Member of Prestigious FRI Research Program
+
+## Relevent Experience
+
+- **ICAP at Columbia University** | New York, NY 	May 2024-Present
+*Intern* 
+  - Conducted qualitative and quantitative analysis on TB and diabetes in Eswatini, including transcribing and summarizing in-depth interviews.
+  - Co-authored a research paper and conference abstract.
+  - Collaborated in study team meetings to discuss project progress and findings.
+  
+- **Herbert Irving Cancer Center- Database Shared Resource (DBSR)**| New York, NY 	May 2024-September 2024
+*Clinical Researcher*
+  - Assisted in building a research resource for at-risk or cancer patients by obtaining informed consent for up to 10 patients a day, accessing medical records, and helping to collect and transport blood biospecimens.
+  - Supported database maintenance, utilizing software platforms like Epic, Qualtrics, Velos, and Scissor 
+
+- **Medtronic Diabetes**	| 2016-Present
+*Type 1 Diabetes International Ambassador *
+  - International ambassador speaking at Type 1 Diabetes conferences, including Advanced Technologies and Treatments for Diabetes, and spokesperson for an international media campaign. 
+  - Contributed to the development and FDA approval of new diabetes medical technologies through clinical trials, focus groups, and collaboration with product developers. 
+  
+- **CDC sponsored through the University of Michigan Future Public Health Leaders Program**	May 2021-May 2022
+*Intern and Contact Tracer* 
+  - Conducted COVID-19 contact tracing, interviewing 15 individuals per day to collect essential data for Wayne County Health Department.
+  - Engaged in a comprehensive curriculum, mentorship opportunities, and research examining public health and health equity. 
+  
+- **Binghamton Molecular and Biological Anthropology Lab**| Binghamton, NY 	2018-2022
+*Researcher, Presenter, and Lab Assistant*
+  - Conducted research on Lyme Disease and COVID-19, managing lab operations and assisting in teaching.
+  - Presented at AABA’s 2022 COD Undergraduate Research Symposium.
+
+## Community Engagement
+- **National Alliance of Public Health Student Alums**| New York, NY 	2024-Present
+*Secretary/Communications Chair*
+  - Advocated for Public Health Students and alums nationwide, maintaining organized records and communications.  
+
+
+## Technical Skills
+- Data Analysis and Statistics:  R and SAS
+- Lab Techniques:  DNA and RNA isolation, RT-PCR, genome sequencing, Western Blot, protein purification and ExPASy
+- Computer: Microsoft Offices (Word, Excel, PowerPoint, and Project)
+- Basic proficiency in Spanish 

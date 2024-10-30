@@ -8,3 +8,7 @@ output:
 ---
 
 # This is Mary's totally and completly awesome website
+# Resources
+
+These are resources that give more information about Mary. 
+* [LinkedIn](https://www.linkedin.com/in/mary-williams106/)
